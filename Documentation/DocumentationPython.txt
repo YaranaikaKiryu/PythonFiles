@@ -1,0 +1,30 @@
+1. Given two integer numbers, return their product only if the product is equal to or lower than 1000. Otherwise, return their sum.
+
+2.Let the user input their name. Output a personalized greating to them
+
+3. let the user input two names and print an introduction
+
+4.input the names and the ages of 2 people and print out their total ages
+
+5. input 5 numbers and calculate the mean.
+
+6.enter the dimensions of a rectangular box and calculate its volume
+
+7. enter the salary for an employee and the tax rate (as a percentage).
+Display the gross pay, net pay(after tax), and the amout of tax paid.
+
+8. a vending machine offers 5 different drink. Let the user select a number
+and then output the name of the drink they chose.
+
+9. input the user's age and determine if they are old enough to vote
+
+10. Let the user enter 2 numbers and print the highest
+
+11. input a person's age and decide which stage of education they are in.
+
+12. input a number. Determine wheter the number is an even number or an odd number
+
+13. write a program to convert between common currencies, (POUND, USD, EURO, YEN, CAD, AUD)
+the program should accept input in one currency and display its value in another Currency the
+input should take the form of "10 GBP to USD" which means "convert 10 British Pounds to USD"
+
