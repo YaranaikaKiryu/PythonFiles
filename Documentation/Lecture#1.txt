@@ -1,0 +1,26 @@
+Variable
+    Varianles are containers for storing data
+A Variable is created the moment you assign a value 
+to it
+
+String 
+    String is  a text data type. Python has a powerful and flexible build in string processing abilities.
+
+Contatination
+    Means to combine two or more strings.
+
+
+    TRUTH TABLE
+
+AND 
+     T - F = F
+    F - T = F
+    F - F = F
+    T - T = T
+
+OR 
+
+F - F = F
+T - F = T
+F - T = T
+T - T = T
