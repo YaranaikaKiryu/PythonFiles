@@ -14,7 +14,7 @@
 Display the gross pay, net pay(after tax), and the amout of tax paid.
 
 8. a vending machine offers 5 different drink. Let the user select a number
-and then output the name of the drink they chose.
+and then output the name of the drink they chose. #DONE
 
 9. input the user's age and determine if they are old enough to vote
 
