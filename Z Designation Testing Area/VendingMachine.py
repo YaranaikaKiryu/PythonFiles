@@ -55,7 +55,7 @@ else:
 
 if Choice == 1:
         if Cash < coke * Quantity:
-            print("INSIFFICIENT FUNDS")
+            print("INSUFFICIENT FUNDS")
         else:
             print("-------RECEIPT-------")
             Soda, total, balance = Coke(Quantity, Cash)
@@ -66,7 +66,7 @@ if Choice == 1:
             
 elif Choice == 2:
         if Cash < sprite * Quantity:
-            print("INSIFFICIENT FUNDS")
+            print("INSUFFICIENT FUNDS")
         else:
             print("-------RECEIPT-------")
             Soda, total, balance = Sprite(Quantity, Cash)
@@ -77,7 +77,7 @@ elif Choice == 2:
         
 elif Choice == 3:
         if Cash < fanta * Quantity:
-            print("INSIFFICIENT FUNDS")
+            print("INSUFFICIENT FUNDS")
         else:
             print("-------RECEIPT-------")
             Soda, total, balance = Fanta(Quantity, Cash)
@@ -88,7 +88,7 @@ elif Choice == 3:
         
 elif Choice == 4:
         if Cash < royal * Quantity:
-            print("INSIFFICIENT FUNDS")
+            print("INSUFFICIENT FUNDS")
         else:
             print("-------RECEIPT-------")
             Soda, total, balance = Royal(Quantity, Cash)
@@ -99,7 +99,7 @@ elif Choice == 4:
         
 elif Choice == 5:
         if Cash < pepsi * Quantity:
-             print("INSIFFICIENT FUNDS")
+             print("INSUFFICIENT FUNDS")
         else:
             print("-------RECEIPT-------")
             Soda, total, balance = Pepsi(Quantity, Cash)

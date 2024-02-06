@@ -5,3 +5,10 @@ def Hello_Hi(name, age):
 
 Hello_Hi("Mike", "34")
 Hello_Hi("Steve", "55")
+
+
+def hello(name1):
+    return f"Hi, {name1}"
+
+message = hello("Nark")
+print(message)

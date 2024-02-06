@@ -1,3 +1,6 @@
+from math import ceil, floor
+
+
 print("Addition")
 print(1+1) #Addition
 print("=====================================")
@@ -36,8 +39,17 @@ print("Absolute Number")
 my_num = -5
 print(abs(my_number)) #returns the absolute digit
 print("=====================================")
-print(pow(4,6)) #to the power 
+print(pow(4,6)) #to the power Returns the value of 4 to the power of 6 (4x4x4x4x4x4)
 print("=====================================")
 print(max(45,100)) #returns the max value of the given numbers
+print("=====================================")
 print(min(45,100)) #returns the min value of the given numbers
+print("=====================================")
 print(round(45.76)) #Round off
+print("=====================================")
+print(ceil(2.56)) #Rounds a number upward to it;s nearest integer
+print("=====================================")
+print(floor(1.4)) #Round numbers down to the nearest Integer
+print("=====================================")
+print("EXPONENT",2**3)
+print("=====================================")

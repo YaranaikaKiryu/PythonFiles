@@ -1,4 +1,10 @@
-val_1 = 23
-vl_2 =  242
+def add(x, y):
+    result = x + y
+    return result
 
-print(val_1+vl_2)
+
+num1 = int(input("1st Num >> "))
+num2 = int(input("2nd Num >> "))
+
+result = add(num1, num2)
+print("Sum >> ",result)
