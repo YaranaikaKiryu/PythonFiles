@@ -31,4 +31,5 @@ print(phrase.index("a")) #determines the index of the string
 
 print(phrase.replace("Sa","Hi")) #replaces certain letters on the string
 
+
 print("=====================================")
