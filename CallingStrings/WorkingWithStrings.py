@@ -9,7 +9,7 @@ print(word)
 print("=====================================")
 
 phrase = "Data Structures and Algorithm"
-print(phrase +" Makes me want to kill my self") #Concatination
+print(phrase +" Makes me want to kill my self") #Concatenation
 print("=====================================")
 
 phrase = "Saori"

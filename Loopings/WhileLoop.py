@@ -1,5 +1,5 @@
 i = 0
 while i <= 10:
-    print(i, "Sex")
+    print(i, "Counting...")
     i += 1
     
