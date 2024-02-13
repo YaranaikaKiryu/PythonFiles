@@ -13,6 +13,7 @@ print(phrase +" Makes me want to kill my self") #Concatination
 print("=====================================")
 
 phrase = "Saori"
+phrase2 = "Saori is a CCS Student"
 
 print(phrase.lower()) #converts string into lower case
 
@@ -33,3 +34,19 @@ print(phrase.replace("Sa","Hi")) #replaces certain letters on the string
 
 
 print("=====================================")
+
+print(phrase[1:5])
+
+print(phrase2.split())
+print("=====================================")
+TSU = "Tarlac State University"
+
+a = int(input("F >> "))
+b = int(input("Fi >> "))
+c = int(input("Fie >> "))
+
+print(TSU[a],TSU[b],TSU[c])
+
+
+
+
