@@ -1,4 +1,3 @@
-#Create a program that will ask name, address, 5 subjects together with units and classifies a given amount of money into smaller monetary units. In the calculation of tuition fee, per unit multiply by the total number of units(Rape per unit 750.87)
 
 Name = input("Enter Your Name >> ")
 Address = input("Enter Your Address >> ")
