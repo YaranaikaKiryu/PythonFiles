@@ -19,7 +19,7 @@ print(years)
 years.pop() #rEMOVES THE LAST ELEMENTS FROM THE LIST
 print(years)
 
-print(Date.index("November")) #tells the location of the said string
+print(Date.index("December")) #tells the location of the said string
 
 print(Date.count("October")) #counts the numbers of duplicate
 
