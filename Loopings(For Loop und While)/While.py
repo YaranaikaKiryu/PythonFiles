@@ -49,3 +49,20 @@ while(True):
 print(weekSalary) """
 
 
+
+
+""" sum = 0 
+total = 0
+number = int(input("ENter a Number and Enter Zero if you're done >> "))
+
+while number != 0:
+    sum += number
+    total +=1
+    number = int(input("ENter a Number and Enter Zero if you're done >> "))
+
+if total > 0:
+    average = sum / total
+    print("The average is:", average)
+else:
+    print("No numbers were entered.") """
+
