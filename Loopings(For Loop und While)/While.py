@@ -47,3 +47,5 @@ while(True):
     dayofweek += 1
     
 print(weekSalary) """
+
+
