@@ -1,6 +1,3 @@
-
-
-
 total = 0
 count = 0
 phrase = ''
