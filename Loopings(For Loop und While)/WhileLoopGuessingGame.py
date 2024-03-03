@@ -11,7 +11,6 @@ while guess != secret_word:
         guess_count += 1
         print("You have", guess_limit - guess_count, "guesses left.")
         
-    
     else:
         out_of_guess = True
         break
@@ -20,4 +19,3 @@ if out_of_guess:
     print("YOU LOSE!")
 else:
     print("You Have enter the Secret Word!")
-    
