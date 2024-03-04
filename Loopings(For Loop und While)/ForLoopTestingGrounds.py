@@ -1,0 +1,1 @@
+#program to display the total goals a player has
