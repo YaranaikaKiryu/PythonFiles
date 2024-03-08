@@ -14,8 +14,7 @@ try:
     result = numerator / denominator
     print(round(result,2))
         
-except ValueError as e:
-    print("You must enter a number!")
+
     #MULTIPLE EXCEPTION HANDLING 
 except ZeroDivisionError as e:
     print(e)

@@ -55,7 +55,7 @@ for names in range(len(list_of_names)):
     print("Hello", list_of_names[names])
     
      """
-try:
+""" try:
     
     number = int(input("Enter a number >> "))
 except ValueError:
@@ -79,4 +79,4 @@ for i in words:
 for i in range(0,10,3):
     print(i)
 else:
-    print("Done Printing Numbers")
+    print("Done Printing Numbers") """
