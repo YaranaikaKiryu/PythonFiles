@@ -196,18 +196,19 @@ else:
     
     
 
-sum_even = 0
-sum_odd = 0
+# sum_even = 0
+# sum_odd = 0
 
-for i in range(1011):
+# for i in range(1011):
     
-    if i%2 == 0:
-        sum_even+=1
+#     if i%2 == 0:
+#         sum_even+=1
         
-    else:
-        sum_odd+=1
+#     else:
+#         sum_odd+=1
         
         
-print("The sum of all even numbers is", sum_even)
-print("The sum of all odd numbers is", sum_odd)
-        
+# print("The sum of all even numbers is", sum_even)
+# print("The sum of all odd numbers is", sum_odd)
+
+

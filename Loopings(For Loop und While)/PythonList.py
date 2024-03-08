@@ -39,18 +39,17 @@
 # print("Average: ",sum/len(values))
     
 
-# StringList = input("Enter Words Separated by Space >> ")
+StringList = input("Enter Words Separated by Space >> ")
 
-# words = StringList.split()
+words = StringList.split()
 
-# for i in words:
-#     print("WE will display each letter of "+i)
+for i in words:
+    print("WE will display each letter of "+i)
     
-#     for words in i:
-#         print(words)
+    for words in i:
+        print(words)
 
 # for i in range(1,10):
 #     if (i == 5):
 #         continue
 #     print(i)
-    
