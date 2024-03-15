@@ -28,7 +28,7 @@ else:
       
   try:
       if Math < 74:
-        raise Exception
+        raise Exception("You Failed Math")
   except:
       print("You Failed Math")
 

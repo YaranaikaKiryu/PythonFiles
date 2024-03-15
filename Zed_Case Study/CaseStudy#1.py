@@ -42,7 +42,7 @@ for i in range(NC):
     if i < NC - 1:
         upperboundary = UCL[i] + 0.5
     else:
-        upperboundary = UCL[i]
+        upperboundary = UCL[i] + 0.5
     classboundaries.append((lowerboundary, upperboundary))
     
 

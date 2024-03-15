@@ -13,7 +13,7 @@ Housing_Loan = float(input("Housing Loan >> "))
 GrossSalary = (Hours_of_Work * Rate_of_Hour) + (Hours_of_OT * Rate_Per_OT)
 TotalDeduction = (SSS_Contribution + Pagibig + Housing_Loan)
 TaxDeduction = (GrossSalary * Tax)
-Net_Salary =  GrossSalary - TotalDeduction - TaxDeduction
+Net_Salary =  GrossSalary - TotalDeduction 
 
 print("====PRINTING PAYSLIP====")
 print("NAME >> ", name)
