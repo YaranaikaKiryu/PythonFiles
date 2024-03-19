@@ -47,7 +47,7 @@ else:
 
 
 
-Name = input("Enter Ur Name >> ")
+"""  Name= input("Enter Ur Name >> ")
 try:
   Math = int(input("Enter Grade In Math >> "))
   Science = int(input("Enter Grade In Science >> "))
@@ -103,3 +103,4 @@ else:
     print("You Failed English")
     
 
+ """

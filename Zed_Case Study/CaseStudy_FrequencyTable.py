@@ -1,8 +1,14 @@
 
+try:
+    from prettytable import PrettyTable #pip install prettytable 
+    
+except ModuleNotFoundError as e:
+    print("PrettyTable Module is not yet Installed, please install it first by using the command 'pip install prettytable' in the console/terminal")
+    print("Terminating Program....")
+    exit()
 #we are going to use Import math to use the math.ceil() funtion to round up the class interval
 import math
 
-from prettytable import PrettyTable #pip install prettytable 
 
 #The user will enter the raw data here 
 #Dont use int here in user input else it will not be read by the program
@@ -20,13 +26,16 @@ while True:
         for x in Raw_Data:
             new_data.append(int(x))
         Raw_Data = new_data
+        #value error will be raised if the user enters a string that is not a number
     except ValueError as e:
         print("Invalid Input, Please enter a number")
     else:
         print("=====================================")
         #Once the user is done entering the raw data, the user will then enter his/hers chosen number of class
+        
         try:
             Classes = int(input("Enter the number of Classes >> "))
+            
             print("=====================================")
             #The minimum and maximum value of the raw data will be determined here
             Upper_Class_Limit = max(Raw_Data)
@@ -65,68 +74,83 @@ while True:
             print("Invalid Input, Please enter a number")
             
         else:
-            #The program will now use a for loop to determine the Lower Class Limit and the Upper Class Limit for each class
-            Lower_Class_Limit_List = [Lower_Class_Limit]
-            #the upper class limit will be determined by adding the class interval to
-            Upper_Class_Limit_List = [Lower_Class_Limit + Class_Interval]
+    
+            #Lower & Upper Class
+            Lower_Class_Limit_List = [] 
+            Upper_Class_Limit_List = []
 
-            for i in range(Classes - 1):
-                Lower_Class_Limit_List.append(Upper_Class_Limit_List[i])
-                Upper_Class_Limit_List.append(Upper_Class_Limit_List[i] + Class_Interval)
-                
-            #Frequency will be determined by using a for loop to count the number of data points that fall within the class limits
-            Frequency = [0] * Classes
-            #a nested for loop will be used to determine the frequency of each class
-            for Data_Point in Raw_Data:
-                for i in range(Classes):
-                    if Lower_Class_Limit_List[i] <= Data_Point < Upper_Class_Limit_List[i]:
-                        Frequency[i] += 1
-                        break
-            
+            for index in range(Classes):
+                ClassVal = Lower_Class_Limit + index * Class_Interval
+                Lower_Class_Limit_List.append(ClassVal)
+                Upper_Class_Limit_List.append(ClassVal + Class_Interval-1)
+                       
+                       
+            Frequency = []
+            for indexOf in range(Classes):
+                minInterval = Lower_Class_Limit_List[indexOf]
+                maxInterval = Upper_Class_Limit_List[indexOf]
+
+                count = 0
+                for j in Raw_Data:
+                    if minInterval <= j <= maxInterval:
+                        count += 1
+                Frequency.append(count)
+
+                                
             Class_Boundaries = []
             for Bound in range(Classes):
-                # Lower Boundary will be determined by using ternary operator a short cut and more efficient way to determine the lower boundary of each class
+                #by using ternary operator a short cut and more efficient way to determine the lower boundary of each class
                 Lower_Boundary = Lower_Class_Limit_List[Bound] - 0.5 if Bound == 0 else Upper_Class_Limit_List[Bound - 1] + 0.5
-
-                # Upper Boundary will be determined by using ternary operator to determine the upper boundary of each class
                 Upper_Boundary = Upper_Class_Limit_List[Bound] + 0.5
 
                 # The lower and upper boundaries will be appended to the Class Boundaries list
                 Class_Boundaries.append([Lower_Boundary, Upper_Boundary])
                 
-            #Class Midpoint will be determined by using a for loop to determine the midpoint of each class
+                #USED WHILE LOOP HERE TO DEMOSTRATE THE USE OF 2 LOOP TYPES
+                
+           #by using a while loop to we are able determine the midpoint of each class
             i = 0
-            Midpoint = [0] * Classes
+            Midpoint = [0] * Classes #the length of midpoint is samw as classes
+            #Midpoint = [0,0,0,0,0,0]
             while i < Classes:
-                #Midpoint will be determined by adding the lower class limit and the upper class limit and dividing it by 2
+                #to get midpoint we will add the lower and upper class limit and divide it by 2
                 Midpoint[i] = (Lower_Class_Limit_List[i] + Upper_Class_Limit_List[i]) / 2
                 i += 1
 
+
+
             #RElative Frequency 
             i = 0
-            Relative_Frequency = [0] * len(Frequency)
-            #Relative Frequency will be determined by dividing the frequency of each class by the total number of data points
-            while i < len(Frequency):
-                Relative_Frequency[i] = Frequency[i] / len(Raw_Data)
+            Relative_Frequency = [0] * len(Frequency) #can also use class interval #The length of the Relative Frequency will be the same as the Frequency
+            #example Frequency list [3,7,7,8,8,7] the length of the Relative Frequency will be 6
+            #in visulaization, the inside of relative frequency will be like tis = [0,0,0,0,0,0]
+            #by dividing the frequency of each class by the total number of data points we can get the result of the relative frequency
+            while i < len(Frequency): 
+                Relative_Frequency[i] = Frequency[i] / len(Raw_Data) #instead of getting the sum of the frequency, weill just use the lenght function
                 i += 1
+
+
 
             #Cumulative Frequency
             i = 0
-            Cumulative_Frequency = [0] * Classes
+            Cumulative_Frequency = [0] * len(Frequency)
             #wHILE LOOP TO DETERMINE THE CUMULATIVE FREQUENCY
-            while i < Classes:
-                #if the index is 0, the cumulative frequency will be the frequency of the first class
-                #Example if the frequency is 5, the cumulative frequency will be 5
-                Cumulative_Frequency[i] = sum(Frequency[:i + 1])
+            while i < len(Frequency):
+                #to get the cumulative frequency, we will add the frequency of each class to the previous class
+                #ternary operator is used here.
+                Cumulative_Frequency[i] = Frequency[i] if i == 0 else Cumulative_Frequency[i-1]+Frequency[i]
                 i += 1
-
+                
+                
             #tABLE 
             Table = PrettyTable()
-            Table.field_names = ["Class", "Tally", "Frequency", "Midpoint", "Cumulative Frequency", "Relative Frequency", "Class Boundaries"]
+            Table.field_names = ["Class","Frequency", "Class Boundaries", "Midpoint", "Relative Frequency", "Cumulative Frequency"]
             #for loop to print the data in a table
             for i in range(Classes):
-                Table.add_row([f"{Lower_Class_Limit_List[i]} - {Upper_Class_Limit_List[i]}", f"{Lower_Class_Limit_List[i]} - {Upper_Class_Limit_List[i]}", Frequency[i], Midpoint[i], Cumulative_Frequency[i], round(Relative_Frequency[i],3), Class_Boundaries[i]])
+                Table.add_row([f"{Lower_Class_Limit_List[i]} - {Upper_Class_Limit_List[i]}",Frequency[i], Class_Boundaries[i], Midpoint[i], round(Relative_Frequency[i],4), Cumulative_Frequency[i]])
             print(Table)
+            print("Sum of Frequency >> ", sum(Frequency))
+            print("Sum of Relative Frequency >> ", round(sum(Relative_Frequency),4))
             print("=====================================")
             
             RetryProgram = input("Do you want to try again? (Yes/No) >> ")
@@ -141,3 +165,11 @@ while True:
                 break
                 
 """  [Acknowledgements: w3schools.com, stackoverflow.com, GitHub.com, CodeAcademy.com] """
+"""
+GITHUB REPOSITORIES USED FOR REFERENCE:
+
+1. https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
+2. https://github.com/Adr-hyng/Frequency-Distribution-Table-Generator/blob/main/main.py
+
+
+"""
