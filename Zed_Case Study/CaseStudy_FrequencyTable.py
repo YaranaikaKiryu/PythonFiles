@@ -1,5 +1,7 @@
 
 try:
+    #IMPORTANT!!!! PLEASE INSTALL PRETTYTABLE FIRST BY TYPING IN THE TERMINAL
+    #pip install prettytable
     from prettytable import PrettyTable #pip install prettytable 
     
 except ModuleNotFoundError as e:
@@ -76,15 +78,16 @@ while True:
         else:
     
             #Lower & Upper Class
-            Lower_Class_Limit_List = [] 
-            Upper_Class_Limit_List = []
+            Lower_Class_Limit_List = [] #empty list
+            Upper_Class_Limit_List = [] #empty List
 
             for index in range(Classes):
                 ClassVal = Lower_Class_Limit + index * Class_Interval
                 Lower_Class_Limit_List.append(ClassVal)
                 Upper_Class_Limit_List.append(ClassVal + Class_Interval-1)
+                
                        
-                       
+                       #CODE BLOCK FOR FREQUENCY TABLE
             Frequency = []
             for indexOf in range(Classes):
                 minInterval = Lower_Class_Limit_List[indexOf]
@@ -106,7 +109,7 @@ while True:
                 # The lower and upper boundaries will be appended to the Class Boundaries list
                 Class_Boundaries.append([Lower_Boundary, Upper_Boundary])
                 
-                #USED WHILE LOOP HERE TO DEMOSTRATE THE USE OF 2 LOOP TYPES
+                #USED WHILE LOOP HERE TO DEMOSTRATE THE USE OF 2 LOOP TYPES THE FOR LOOP AND WHILE LOOP
                 
            #by using a while loop to we are able determine the midpoint of each class
             i = 0
@@ -170,6 +173,65 @@ GITHUB REPOSITORIES USED FOR REFERENCE:
 
 1. https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
 2. https://github.com/Adr-hyng/Frequency-Distribution-Table-Generator/blob/main/main.py
-
-
 """
+""" 
+
+VISUALUZATION OF HOW TO GET THE CLASS LIMITS 
+
+RAW DATA >> 10,10,5,5,8,8,3,2,1,1
+UPPER >> 1
+LOWER >> 10
+
+
+
+Iteration 1:
+    index = 0
+    ClassVal = 1 + 0 * 2 = 1
+    Lower_Class_Limit_List = [1]
+    Upper_Class_Limit_List = [1 + 2 - 1] = [2]
+
+Iteration 2:
+    index = 1
+    ClassVal = 10 + 1 * 20 = 30
+    Lower_Class_Limit_List = [10, 30]
+    Upper_Class_Limit_List = [29, 30 + 20 - 1] = [29, 49]
+
+Iteration 3:
+    index = 2
+    ClassVal = 10 + 2 * 20 = 50
+    Lower_Class_Limit_List = [10, 30, 50]
+    Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""""
+Iteration 1:
+    index = 0
+    ClassVal = 10 + 0 * 20 = 10
+    Lower_Class_Limit_List = [10]
+    Upper_Class_Limit_List = [10 + 20 - 1] = [29]
+
+Iteration 2:
+    index = 1
+    ClassVal = 10 + 1 * 20 = 30
+    Lower_Class_Limit_List = [10, 30]
+    Upper_Class_Limit_List = [29, 30 + 20 - 1] = [29, 49]
+
+Iteration 3:
+    index = 2
+    ClassVal = 10 + 2 * 20 = 50
+    Lower_Class_Limit_List = [10, 30, 50]
+    Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
