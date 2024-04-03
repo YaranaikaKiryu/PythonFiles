@@ -182,8 +182,6 @@ RAW DATA >> 10,10,5,5,8,8,3,2,1,1
 UPPER >> 1
 LOWER >> 10
 
-
-
 Iteration 1:
     index = 0
     ClassVal = 1 + 0 * 2 = 1
@@ -203,7 +201,31 @@ Iteration 3:
     Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
 
 
+""""
+VISUALIZATION OF HOW TO GET FREQUENCY
 
+First iteration (indexOf = 0): minInterval = 1, maxInterval = 2
+
+It checks each number in Raw_Data. The numbers 1 and 2 fall within this range. So, count becomes 3 (as there are two 1s and one 2).
+count is appended to Frequency, so Frequency becomes [3].
+Second iteration (indexOf = 1): minInterval = 3, maxInterval = 4
+
+It checks each number in Raw_Data. The number 3 falls within this range. So, count becomes 1.
+count is appended to Frequency, so Frequency becomes [3, 1].
+Third iteration (indexOf = 2): minInterval = 5, maxInterval = 6
+
+It checks each number in Raw_Data. The numbers 5 fall within this range. So, count becomes 2 (as there are two 5s).
+count is appended to Frequency, so Frequency becomes [3, 1, 2].
+Fourth iteration (indexOf = 3): minInterval = 7, maxInterval = 8
+
+It checks each number in Raw_Data. The numbers 8 fall within this range. So, count becomes 2 (as there are two 8s).
+count is appended to Frequency, so Frequency becomes [3, 1, 2, 2].
+Fifth iteration (indexOf = 4): minInterval = 9, maxInterval = 10
+
+It checks each number in Raw_Data. The numbers 10 fall within this range. So, count becomes 2 (as there are two 10s).
+count is appended to Frequency, so Frequency becomes [3, 1, 2, 2, 2].
+So, the final Frequency list is [3, 1, 2, 2, 2]. This list represents how many numbers in Raw_Data fall within each of the defined ranges (classes).
+"""
 
 
 
