@@ -139,19 +139,14 @@ while True:
             i = 0
             Cumulative_Frequency = [0] * len(Frequency)
             #wHILE LOOP TO DETERMINE THE CUMULATIVE FREQUENCY
+           
             while i < len(Frequency):
                 #to get the cumulative frequency, we will add the frequency of each class to the previous class
                 #ternary operator is used here.
                 Cumulative_Frequency[i] = Frequency[i] if i == 0 else Cumulative_Frequency[i-1]+Frequency[i]
                 i += 1
-<<<<<<< Updated upstream
-                
-                
-            #tABLE 
-=======
 
             
->>>>>>> Stashed changes
             Table = PrettyTable()
             Table.field_names = ["Class","Frequency", "Class Boundaries", "Midpoint", "Relative Frequency", "Cumulative Frequency"]
             #for loop to print the data in a table
@@ -174,7 +169,6 @@ while True:
                 break
                 
 """  [Acknowledgements: w3schools.com, stackoverflow.com, GitHub.com, CodeAcademy.com] """
-<<<<<<< Updated upstream
 """
 GITHUB REPOSITORIES USED FOR REFERENCE:
 
@@ -188,87 +182,333 @@ VISUALUZATION OF HOW TO GET THE CLASS LIMITS
 RAW DATA >> 10,10,5,5,8,8,3,2,1,1
 UPPER >> 1
 LOWER >> 10
+CLASSES >> 5
+
+Lower_Class_Limit_List.append(ClassVal)
+Upper_Class_Limit_List.append(ClassVal + Class_Interval-1)
+
 
 Iteration 1:
     index = 0
     ClassVal = 1 + 0 * 2 = 1
     Lower_Class_Limit_List = [1]
     Upper_Class_Limit_List = [1 + 2 - 1] = [2]
+    
+    OUTPUT: 
+    Lower_Class_Limit_List = [1]
+    Upper_Class_Limit_List = [2]
+    
 
 Iteration 2:
     index = 1
-    ClassVal = 10 + 1 * 20 = 30
-    Lower_Class_Limit_List = [10, 30]
-    Upper_Class_Limit_List = [29, 30 + 20 - 1] = [29, 49]
+    ClassVal = 1 + 1 * 2 = 3
+    Lower_Class_Limit_List = [1, 3]
+    Upper_Class_Limit_List = [2, 3 + 2 - 1] = [2, 4]
+    
+    OUTPUT:
+    Lower_Class_Limit_List = [1, 3]
+    Upper_Class_Limit_List = [2, 4]
+    
 
 Iteration 3:
     index = 2
-    ClassVal = 10 + 2 * 20 = 50
-    Lower_Class_Limit_List = [10, 30, 50]
-    Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
+    ClassVal = 1 + 2 * 2 = 5
+    Lower_Class_Limit_List = [1, 3, 5]
+    Upper_Class_Limit_List = [2, 4, 5 + 2 - 1] = [2, 4, 6]
+    
+    OUTPUT:
+    Lower_Class_Limit_List = [1, 3, 5]
+    Upper_Class_Limit_List = [2, 4, 6]
+    
 
-
+Iteration 4:
+    index = 3
+    ClassVal = 1 + 3 * 2 = 7
+    Lower_Class_Limit_List = [1, 3, 5, 7]
+    Upper_Class_Limit_List = [2, 4, 6, 7 + 2 - 1] = [2, 4, 6, 8]
+    
+    OUTPUT:
+    Lower_Class_Limit_List = [1, 3, 5, 7]
+    Upper_Class_Limit_List = [2, 4, 6, 8]
+    
+Iteration 5:
+    index = 4
+    ClassVal = 1 + 4 * 2 = 9
+    Lower_Class_Limit_List = [1, 3, 5, 7, 9]
+    Upper_Class_Limit_List = [2, 4, 6, 8, 9 + 2 - 1] = [2, 4, 6, 8, 10]
+    
+    OUTPUT:
+    Lower_Class_Limit_List = [1, 3, 5, 7, 9]
+    Upper_Class_Limit_List = [2, 4, 6, 8, 10]
+    
+    
+    """
 """"
 VISUALIZATION OF HOW TO GET FREQUENCY
 
-First iteration (indexOf = 0): minInterval = 1, maxInterval = 2
+ 
+Lower_Class_Limit_List = [1, 3, 5, 7, 9]
+Upper_Class_Limit_List = [2, 4, 6, 8, 10]
+RAW DATA >> 10,10,5,5,8,8,3,2,1,1
 
-It checks each number in Raw_Data. The numbers 1 and 2 fall within this range. So, count becomes 3 (as there are two 1s and one 2).
-count is appended to Frequency, so Frequency becomes [3].
-Second iteration (indexOf = 1): minInterval = 3, maxInterval = 4
 
-It checks each number in Raw_Data. The number 3 falls within this range. So, count becomes 1.
-count is appended to Frequency, so Frequency becomes [3, 1].
-Third iteration (indexOf = 2): minInterval = 5, maxInterval = 6
+First iteration 
+indexOf = 0 
+minInterval = 1 
+maxInterval = 2
 
-It checks each number in Raw_Data. The numbers 5 fall within this range. So, count becomes 2 (as there are two 5s).
-count is appended to Frequency, so Frequency becomes [3, 1, 2].
-Fourth iteration (indexOf = 3): minInterval = 7, maxInterval = 8
 
-It checks each number in Raw_Data. The numbers 8 fall within this range. So, count becomes 2 (as there are two 8s).
-count is appended to Frequency, so Frequency becomes [3, 1, 2, 2].
-Fifth iteration (indexOf = 4): minInterval = 9, maxInterval = 10
 
-It checks each number in Raw_Data. The numbers 10 fall within this range. So, count becomes 2 (as there are two 10s).
-count is appended to Frequency, so Frequency becomes [3, 1, 2, 2, 2].
-So, the final Frequency list is [3, 1, 2, 2, 2]. This list represents how many numbers in Raw_Data fall within each of the defined ranges (classes).
+if 1 <= 0 <= 2: False
+if 1 <= 1 <= 2: True
+if 1 <= 1 <= 2: True
+if 1 <= 2 <= 2: True
+Count = 3
+
+Frequency = [3]
+
+Second iteration
+indexOf = 1
+minInterval = 3
+maxInterval = 4
+
+if 3 <= 10 <= 4: False
+if 3 <= 10 <= 4: False
+if 3 <= 5 <= 4: False
+if 3 <= 5 <= 4: False
+if 3 <= 8 <= 4: False
+if 3 <= 8 <= 4: False
+if 3 <= 3 <= 4: True
+if 3 <= 2 <= 4: False
+if 3 <= 1 <= 4: False
+if 3 <= 1 <= 4: False
+
+Count = 1
+Frequency = [3,1]
+
+
+Third iteration
+indexOf = 2
+minInterval = 5
+maxInterval = 6
+
+if 5 <= 10 <= 6: False
+if 5 <= 10 <= 6: False
+if 5 <= 5 <= 6: True
+if 5 <= 5 <= 6: True
+if 5 <= 8 <= 6: False
+if 5 <= 8 <= 6: False
+if 5 <= 3 <= 6: False
+if 5 <= 2 <= 6: False
+if 5 <= 1 <= 6: False
+if 5 <= 1 <= 6: False
+
+count = 2
+Frequency = [3,1,2]
+
+
+Fourth iteration
+indexOf = 3
+minInterval = 7
+maxInterval = 8
+
+if 7 <= 10 <= 8: False
+if 7 <= 10 <= 8: False
+if 7 <= 5 <= 8: False
+if 7 <= 5 <= 8: False
+if 7 <= 8 <= 8: True
+if 7 <= 8 <= 8: True
+if 7 <= 3 <= 8: False
+if 7 <= 2 <= 8: False
+if 7 <= 1 <= 8: False
+if 7 <= 1 <= 8: False
+
+count = 2
+Frequency = [3,1,2,2]
+
+
+Fifth iteration 
+indexOf = 4 
+minInterval = 9
+maxInterval = 10
+
+if 9 <= 10 <= 10: True
+if 9 <= 10 <= 10: True
+if 9 <= 5 <= 10: False
+if 9 <= 5 <= 10: False
+if 9 <= 8 <= 10: False
+if 9 <= 8 <= 10: False
+if 9 <= 3 <= 10: False
+if 9 <= 2 <= 10: False
+if 9 <= 1 <= 10: False
+if 9 <= 1 <= 10: False
+
+
+
+VISUALIZATION OF HOW TO GET THE CLASS BOUNDARIES
+
+Lower_Class_Limit_List = [1, 3, 5, 7, 9]
+Upper_Class_Limit_List = [2, 4, 6, 8, 10]
+                
+                
+    Class_Boundaries = []
+            for Bound in range(Classes):
+                Lower_Boundary = Lower_Class_Limit_List[Bound] - 0.5 if Bound == 0 else Upper_Class_Limit_List[Bound - 1] + 0.5
+                Upper_Boundary = Upper_Class_Limit_List[Bound] + 0.5
+
+
+                Class_Boundaries.append([Lower_Boundary, Upper_Boundary])
+                
+
+
+Bound = 0
+Lower_Boundary = Lower_Class_Limit_List[0] - 0.5 = 1 - 0.5 = 0.5
+Upper_Boundary = Upper_Class_Limit_List[0] + 0.5 = 2 + 0.5 = 2.5
+
+Class_Boundaries = [[0.5, 2.5]]
+
+Bound = 1
+Lower_Boundary = Lower_Class_Limit_List[1] + 0.5 = 3 + 0.5 = 3.5
+Upper_Boundary = Upper_Class_Limit_List[1] + 0.5 = 4 + 0.5 = 4.5
+
+Class_Boundaries = [[0.5, 2.5], [3.5, 4.5]]
+
+Bound = 2
+Lower_Boundary = Lower_Class_Limit_List[2] + 0.5 = 5 + 0.5 = 5.5
+Upper_Boundary = Upper_Class_Limit_List[2] + 0.5 = 6 + 0.5 = 6.5
+
+Class_Boundaries = [[0.5, 2.5], [3.5, 4.5], [5.5, 6.5]]
+
+Bound = 3
+Lower_Boundary = Lower_Class_Limit_List[3] + 0.5 = 7 + 0.5 = 7.5
+Upper_Boundary = Upper_Class_Limit_List[3] + 0.5 = 8 + 0.5 = 8.5
+
+Class_Boundaries = [[0.5, 2.5], [3.5, 4.5], [5.5, 6.5], [7.5, 8.5]]
+
+Bound = 4
+Lower_Boundary = Lower_Class_Limit_List[4] + 0.5 = 9 + 0.5 = 9.5
+Upper_Boundary = Upper_Class_Limit_List[4] + 0.5 = 10 + 0.5 = 10.5
+
+Class_Boundaries = [[0.5, 2.5], [3.5, 4.5], [5.5, 6.5], [7.5, 8.5], [9.5, 10.5]]
+
+END OF LOOP
+                
+                
+                
+                
+EXAMPLE OF HOW TO GET THE MIDPOINT AND VISUALIZATION
+
+            i = 0
+            Midpoint = [0] * Classes #the length of midpoint is samw as classes
+            #Midpoint = [0,0,0,0,0,0]
+            while i < Classes:
+                #to get midpoint we will add the lower and upper class limit and divide it by 2
+                Midpoint[i] = (Lower_Class_Limit_List[i] + Upper_Class_Limit_List[i]) / 2
+                i += 1
+
+    Lower_Class_Limit_List = [1, 3, 5, 7, 9]
+    Upper_Class_Limit_List = [2, 4, 6, 8, 10]
+    
+    Midpoint = [0,0,0,0,0]
+    
+    i = 0
+    Midpoint[i] = (1 + 2) / 2 
+    = 3 / 2 = 1.5
+    
+    i = 1
+    midpoint[i] = (3 + 4) / 2 
+    = 7 / 2 = 3.5
+    
+    i = 2
+    midpoint[i] = (5 + 6) / 2 
+    = 11 / 2 = 5.5
+    
+    i = 3
+    midpoint[i] = (7 + 8) / 2 
+    = 15 / 2 = 7.5
+    
+    i = 4
+    midpoint[i] = (9 + 10) / 2 
+    = 19 / 2 = 9.5
+    
+    Midpoint = [1.5, 3.5, 5.5, 7.5, 9.5]
+    
+    
+    
+EXAMPLE OF HOW TO GET THE RELATIVE FREQUENCY
+
+    Frequency = [3,1,2,2,2]
+    Relative_Frequency = [0,0,0,0,0]
+    
+    
+            #RElative Frequency 
+            i = 0
+            Relative_Frequency = [0] * len(Frequency) 
+            while i < len(Frequency): 
+                Relative_Frequency[i] = Frequency[i] / len(Raw_Data) 
+                i += 1
+
+
+    
+    i = 0
+    Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 3 / 10 = 0.3
+    
+    i = 1
+    Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 1 / 10 = 0.1
+    
+    i = 2
+    Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 2 / 10 = 0.2
+    
+    i = 3
+    Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 2 / 10 = 0.2
+    
+    i = 4
+    Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 2 / 10 = 0.2
+    
+    Relative_Frequency = [0.3, 0.1, 0.2, 0.2, 0.2]
+    
+    
+EXAMPLE OF HOW TO GET THE CUMULATIVE FREQUENCY
+
+
+         #Cumulative Frequency
+            i = 0
+            Cumulative_Frequency = [0] * len(Frequency)
+            
+            while i < len(Frequency):
+               
+                Cumulative_Frequency[i] = Frequency[i] if i == 0 
+                
+                else Cumulative_Frequency[i-1]+Frequency[i]
+                i += 1
+
+    Frequency = [3,1,2,2,2]
+    Cumulative_Frequency = [0,0,0,0,0]
+    
+    
+    
+    i = 0
+    Cumulative_Frequency[i] = Frequency[i] = 3
+        Cumulative_Frequency = [3,0,0,0,0]
+    
+    i = 1
+    Cumulative_Frequency[i] = Frequency[i] + Cumulative_Frequency[i-1] = 1 + 3 = 4
+            Cumulative_Frequency = [3,4,0,0,0]
+    
+    i = 2
+    Cumulative_Frequency[i] = Frequency[i] + Cumulative_Frequency[i-1] = 2 + 4 = 6
+    
+    i = 3
+    Cumulative_Frequency[i] = Frequency[i] + Cumulative_Frequency[i-1] = 2 + 6 = 8
+    
+    i = 4
+    Cumulative_Frequency[i] = Frequency[i] + Cumulative_Frequency[i-1] = 2 + 8 = 10
+    
+    Cumulative_Frequency = [3,4,6,8,10]
+    
+
+
+
+
 """
 
-
-
-
-
-
-
-
-
-
-
-
-
-"""""
-Iteration 1:
-    index = 0
-    ClassVal = 10 + 0 * 20 = 10
-    Lower_Class_Limit_List = [10]
-    Upper_Class_Limit_List = [10 + 20 - 1] = [29]
-
-Iteration 2:
-    index = 1
-    ClassVal = 10 + 1 * 20 = 30
-    Lower_Class_Limit_List = [10, 30]
-    Upper_Class_Limit_List = [29, 30 + 20 - 1] = [29, 49]
-
-Iteration 3:
-    index = 2
-    ClassVal = 10 + 2 * 20 = 50
-    Lower_Class_Limit_List = [10, 30, 50]
-    Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
-=======
-
-"""GITHUB REPOSITORY ACKNOWLEDGEMENTS:
-    https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
-    https://github.com/sam17896/FrequencyDistributionTable/blob/master/prob.cpp
-    https://github.com/BeepBoopBit/frequency-distribution-calculator/blob/master/main.py
-"""
->>>>>>> Stashed changes
