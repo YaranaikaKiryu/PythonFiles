@@ -1,3 +1,7 @@
+#BEFORE RUNNING THE PROGRAM, PLEASE INSTALL THE FOLLOWING LIBRARY
+#pip install prettytable
+#type the following command in the terminal to install the prettytable library
+
 
 try:
     #IMPORTANT!!!! PLEASE INSTALL PRETTYTABLE FIRST BY TYPING IN THE TERMINAL
@@ -13,10 +17,11 @@ import math
 
 
 #The user will enter the raw data here 
-#Dont use int here in user input else it will not be read by the program
+
 while True:
     try:
-        Raw_Data = input("Enter Raw Data separated by a comma >> ")
+        #Dont use int here in user input else it will not be read by the program
+        Raw_Data = input("Enter Raw Data separated by a COMMA >> ")
 
         #Raw Data will be split into a list of strings 
         Raw_Data = Raw_Data.split(",")
@@ -47,11 +52,7 @@ while True:
             Range = Upper_Class_Limit - Lower_Class_Limit
 
             #Now for the next step the program will now determin the class interval or the width of the class
-            #In here for the result, Example, if the Class Interval is 7.2, it will round up into 8 due to being
-
-            #There are no such thing as 7.2 of a person, it will always be a whole number when it comes to Class Intervals
-        
-
+            #In here for the result, Example, if the Class Interval is 7.2, it will round up into 8 due to being a whole number
             Class_Interval = Range / Classes
             Class_Interval = math.ceil(Class_Interval)
 
@@ -143,9 +144,14 @@ while True:
                 #ternary operator is used here.
                 Cumulative_Frequency[i] = Frequency[i] if i == 0 else Cumulative_Frequency[i-1]+Frequency[i]
                 i += 1
+<<<<<<< Updated upstream
                 
                 
             #tABLE 
+=======
+
+            
+>>>>>>> Stashed changes
             Table = PrettyTable()
             Table.field_names = ["Class","Frequency", "Class Boundaries", "Midpoint", "Relative Frequency", "Cumulative Frequency"]
             #for loop to print the data in a table
@@ -168,6 +174,7 @@ while True:
                 break
                 
 """  [Acknowledgements: w3schools.com, stackoverflow.com, GitHub.com, CodeAcademy.com] """
+<<<<<<< Updated upstream
 """
 GITHUB REPOSITORIES USED FOR REFERENCE:
 
@@ -257,3 +264,11 @@ Iteration 3:
     ClassVal = 10 + 2 * 20 = 50
     Lower_Class_Limit_List = [10, 30, 50]
     Upper_Class_Limit_List = [29, 49, 50 + 20 - 1] = [29, 49, 69] """
+=======
+
+"""GITHUB REPOSITORY ACKNOWLEDGEMENTS:
+    https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
+    https://github.com/sam17896/FrequencyDistributionTable/blob/master/prob.cpp
+    https://github.com/BeepBoopBit/frequency-distribution-calculator/blob/master/main.py
+"""
+>>>>>>> Stashed changes
