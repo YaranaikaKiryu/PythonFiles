@@ -399,8 +399,10 @@ END OF LOOP
 EXAMPLE OF HOW TO GET THE MIDPOINT AND VISUALIZATION
 
             i = 0
+            Midpoint = [0,0,0,0,0]
             Midpoint = [0] * Classes #the length of midpoint is samw as classes
             #Midpoint = [0,0,0,0,0,0]
+            
             while i < Classes:
                 #to get midpoint we will add the lower and upper class limit and divide it by 2
                 Midpoint[i] = (Lower_Class_Limit_List[i] + Upper_Class_Limit_List[i]) / 2
@@ -409,7 +411,7 @@ EXAMPLE OF HOW TO GET THE MIDPOINT AND VISUALIZATION
     Lower_Class_Limit_List = [1, 3, 5, 7, 9]
     Upper_Class_Limit_List = [2, 4, 6, 8, 10]
     
-    Midpoint = [0,0,0,0,0]
+
     
     i = 0
     Midpoint[i] = (1 + 2) / 2 
@@ -437,18 +439,19 @@ EXAMPLE OF HOW TO GET THE MIDPOINT AND VISUALIZATION
     
 EXAMPLE OF HOW TO GET THE RELATIVE FREQUENCY
 
-    Frequency = [3,1,2,2,2]
-    Relative_Frequency = [0,0,0,0,0]
-    
     
             #RElative Frequency 
             i = 0
             Relative_Frequency = [0] * len(Frequency) 
+
+
+    Relative_Frequency = [0,0,0,0,0]
+
             while i < len(Frequency): 
                 Relative_Frequency[i] = Frequency[i] / len(Raw_Data) 
                 i += 1
 
-
+    Frequency = [3,1,2,2,2]
     
     i = 0
     Relative_Frequency[i] = Frequency[i] / len(Raw_Data) = 3 / 10 = 0.3
