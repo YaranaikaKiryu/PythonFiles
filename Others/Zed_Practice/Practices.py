@@ -1,5 +1,4 @@
 import math
-
 class Circle:
     def __init__(fuck):
         fuck.radius = float(input("Enter Radius: "))
