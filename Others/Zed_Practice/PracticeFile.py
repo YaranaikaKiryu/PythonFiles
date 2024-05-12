@@ -135,3 +135,75 @@ end_vale = int(input("Enter the end value: "))
 for x in range(1,end_vale+1):
     print(f"{multipkier} * {x} = {multipkier*x}") """
     
+    
+""" def Add(*values):
+    return sum(values)
+
+def Subtract(*values):
+    return values[0] - sum(values[1:])
+
+def Multiply(*values):
+    product = 1
+    for value in values:
+        product *= value
+    return product
+
+def Divide(*values):
+    try:
+        return values[0] / values[1]
+    except ZeroDivisionError:
+        return "Cannot divide by zero"
+
+Number = int(input("Enter Number >> "))
+Values = []
+for _ in range(Number):
+    value = int(input("Enter Value >> "))
+    Values.append(value)
+
+print("==================")
+# Call the functions and pass the values
+Sum = Add(*Values)
+Difference = Subtract(*Values)
+Product = Multiply(*Values)
+Quotient = Divide(*Values)
+
+print("SUM >>", Sum)
+print("DIFFERENCE >> ", Difference)
+print("PRODUCT >> ", Product)
+print("QUOTIENT >> ", Quotient) """
+
+
+def Add(*values):
+    Sum = sum(values)
+    return Sum
+
+def Subtract(*values):
+    Difference = values[0] - sum(values[1:])
+    return Difference
+
+def Multiply(*values):
+    Product = 1
+    for value in values:
+        Product *= value
+    return Product
+
+def Divide(*values):
+        Quotient = values[0] / values[1]
+        return Quotient
+
+Number = int(input("Enter Number >> "))
+Values = []
+for x in range(Number):
+    value = int(input())
+    Values.append(value)
+
+print("==================")
+Sum = Add(*Values)
+Difference = Subtract(*Values)
+Product = Multiply(*Values)
+Quotient = Divide(*Values)
+
+print("SUM >>", Sum)
+print("DIFFERENCE >> ", Difference)
+print("PRODUCT >> ", Product)
+print("QUOTIENT >> ", Quotient)
