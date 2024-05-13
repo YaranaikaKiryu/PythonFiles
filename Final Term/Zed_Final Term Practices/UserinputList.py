@@ -11,3 +11,10 @@ for i in range(0,userinput):
 print("This is the List >> ",pythonlist)
 
 
+python_list = []
+
+pythonlister = int(input("Enter the number of elements: "))
+
+for i in range(0, pythonlister):
+    elements = input(f"Enter element {i+1}: ")
+    python_list.append(elements)

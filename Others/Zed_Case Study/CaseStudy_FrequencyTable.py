@@ -2,42 +2,29 @@
 #pip install prettytable
 #type the following command in the terminal to install the prettytable library
 
-
 try:
-    #IMPORTANT!!!! PLEASE INSTALL PRETTYTABLE FIRST BY TYPING IN THE TERMINAL
-    #pip install prettytable
-    from prettytable import PrettyTable #pip install prettytable 
-    
+    import pandas as pd
+    from prettytable import PrettyTable
+    import matplotlib.pyplot as plt
 except ModuleNotFoundError as e:
-    print("PrettyTable Module is not yet Installed, please install it first by using the command 'pip install prettytable' in the console/terminal")
+    print("PrettyTable or pandas Module is not yet Installed, please install it first by using the command 'pip install prettytable pandas' in the console/terminal")
     print("Terminating Program....")
     exit()
-#we are going to use Import math to use the math.ceil() funtion to round up the class interval
+
 import math
-
-
-#The user will enter the raw data here 
 
 while True:
     try:
-        #Dont use int here in user input else it will not be read by the program
         Raw_Data = input("Enter Raw Data separated by a COMMA >> ")
-
-        #Raw Data will be split into a list of strings 
         Raw_Data = Raw_Data.split(",")
-        #Varialbe new_data will be used to store the new data 
         new_data = []
-        
-        #by using a for loop, the program will convert the string into an 
-        # int and assign it to the new_data list and store it on a varialbe named Raw Data
         for x in Raw_Data:
             new_data.append(int(x))
         Raw_Data = new_data
-        #value error will be raised if the user enters a string that is not a number
     except ValueError as e:
         print("Invalid Input, Please enter a number")
     else:
-        print("=====================================")
+        new_data_series = pd.Series(Raw_Data)
         #Once the user is done entering the raw data, the user will then enter his/hers chosen number of class
         
         try:
@@ -156,6 +143,18 @@ while True:
             print("Sum of Frequency >> ", sum(Frequency))
             print("Sum of Relative Frequency >> ", round(sum(Relative_Frequency),4))
             print("=====================================")
+            
+
+# Generate the histogram
+            new_data_series.plot.hist(grid=True, bins=20, rwidth=0.9, color='#607c8e')
+
+            plt.title('Employee Data Histogram')
+            plt.xlabel('Values')
+            plt.ylabel('Frequency')
+            plt.grid(axis='y', alpha=0.75)
+
+            plt.show()
+            
             
             RetryProgram = input("Do you want to try again? (Yes/No) >> ")
             if RetryProgram.lower() == "yes":
