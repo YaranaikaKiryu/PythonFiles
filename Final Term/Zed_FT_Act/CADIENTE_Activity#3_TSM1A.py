@@ -40,7 +40,7 @@ class Employee:
 Employees = [] #create empty list
 
 EnterNumberofEmployees = int(input("Enter the Number of Employees >> "))
-
+print("========================================================")
 for x in range(0,EnterNumberofEmployees):
     emp_Name = input(f"Enter Employee {x+1} Name >> ")
     emp_ID = int(input(f"Enter Employee {x+1} ID >> "))
