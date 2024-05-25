@@ -1,13 +1,11 @@
 #BEFORE RUNNING THE PROGRAM, PLEASE INSTALL THE FOLLOWING LIBRARY
-#pip install prettytable
 #type the following command in the terminal to install the prettytable library
 
 try:
     import pandas as pd
-    from prettytable import PrettyTable
     import matplotlib.pyplot as plt
 except ModuleNotFoundError as e:
-    print("PrettyTable or pandas Module is not yet Installed, please install it first by using the command 'pip install prettytable pandas' in the console/terminal")
+    print("pandas or matplotlib.pyplot Module is not yet Installed, please install it first by using the command 'pip install matplotlib.pyplot pandas' in the console/terminal")
     print("Terminating Program....")
     exit()
 
@@ -133,29 +131,60 @@ while True:
                 Cumulative_Frequency[i] = Frequency[i] if i == 0 else Cumulative_Frequency[i-1]+Frequency[i]
                 i += 1
 
-            
-            Table = PrettyTable()
-            Table.field_names = ["Class","Frequency", "Class Boundaries", "Midpoint", "Relative Frequency", "Cumulative Frequency"]
-            #for loop to print the data in a table
-            for i in range(Classes):
-                Table.add_row([f"{Lower_Class_Limit_List[i]} - {Upper_Class_Limit_List[i]}",Frequency[i], Class_Boundaries[i], Midpoint[i], round(Relative_Frequency[i],4), Cumulative_Frequency[i]])
-            print(Table)
-            print("Sum of Frequency >> ", sum(Frequency))
-            print("Sum of Relative Frequency >> ", round(sum(Relative_Frequency),4))
+            # Create a DataFrame
+            df = pd.DataFrame({
+                "Class": [f"{Lower_Class_Limit_List[i]} - {Upper_Class_Limit_List[i]}" for i in range(Classes)],
+                "Frequency": Frequency,
+                "Class Boundaries": Class_Boundaries,
+                "Midpoint": Midpoint,
+                "Relative Frequency": [round(x, 4) for x in Relative_Frequency],
+                "Cumulative Frequency": Cumulative_Frequency
+            })
+
+            # Print the DataFrame
+            print(df)
+
+            # Print the sum of Frequency and Relative Frequency
+            print("Sum of Frequency >> ", df['Frequency'].sum())
+            print("Sum of Relative Frequency >> ", round(df['Relative Frequency'].sum(), 4))
             print("=====================================")
+           
+            mean = sum(Frequency) / len(Frequency)
             
+            SortThyFrequency = sorted(Frequency)
+            lengthoffrequency = len(SortThyFrequency)
+            
+            if lengthoffrequency % 2 == 0: 
+                median = ( SortThyFrequency[ lengthoffrequency // 2 - 1] +  SortThyFrequency[ lengthoffrequency // 2]) / 2
+            else:  
+                median =  SortThyFrequency [lengthoffrequency // 2]
+            #TAKEN FROM ANOTHER GITHUB REPOSITORY
 
-# Generate the histogram
-            new_data_series.plot.hist(grid=True, bins=20, rwidth=0.9, color='#607c8e')
+            #USE DICTIONARY KEYWORD TO GET THE MODE
+            mode = max(set(Frequency), key=Frequency.count)
+            #EXPLANATION:
+            #HERE
 
-            plt.title('Employee Data Histogram')
-            plt.xlabel('Values')
+            # Print Mean, Median, Mode
+            print("Mean of Frequency: ", mean)
+            print("Median of Frequency: ", median)
+            print("Mode of Frequency: ", mode)
+                    
+            #BAR GRAPH AND LINE PLOT TO SHOW THE PLOTTING OF THE FREQUENCY DISTRIBUTION TABLE
+            plt.bar(df['Class'], df['Frequency'], width=1, edgecolor='black')
+            plt.plot(df['Class'], df['Frequency'], color='red', marker='o')
+            plt.xlabel('Class')
             plt.ylabel('Frequency')
-            plt.grid(axis='y', alpha=0.75)
-
+            plt.title('Frequency Distribution Table Histogram')
             plt.show()
-            
-            
+        
+            #HISTOGRAM TO SHOW THE FREQUENCY DISTRIBUTION TABLE
+            plt.hist(df['Midpoint'], bins=Classes, weights=df['Frequency'], edgecolor='black')
+            plt.xlabel('Midpoint')
+            plt.ylabel('Frequency')
+            plt.title('Frequency Distribution Table Histogram')
+            plt.show()
+           
             RetryProgram = input("Do you want to try again? (Yes/No) >> ")
             if RetryProgram.lower() == "yes":
                 continue
@@ -173,6 +202,7 @@ GITHUB REPOSITORIES USED FOR REFERENCE:
 
 1. https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
 2. https://github.com/Adr-hyng/Frequency-Distribution-Table-Generator/blob/main/main.py
+3. 
 """
 """ 
 
@@ -508,9 +538,5 @@ EXAMPLE OF HOW TO GET THE CUMULATIVE FREQUENCY
     
     Cumulative_Frequency = [3,4,6,8,10]
     
-
-
-
-
 """
 

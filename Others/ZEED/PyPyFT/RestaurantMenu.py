@@ -88,5 +88,4 @@ def main():
             print("Number out of range, please try again.")
 
 
-if __name__ == "__main__":
-    main()
+main()

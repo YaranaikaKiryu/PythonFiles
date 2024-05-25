@@ -2,7 +2,7 @@ import pandas as pd
 
 divider = '----------------------------------------'
 
-exelfile = pd.read_excel('/Users/rime_valkyries/Desktop/PROGRAMMING FILES/PythonFiles/Python Database PANDAS/FreqOfMass.xlsx', engine = 'openpyxl')
+exelfile = pd.read_excel('c:/Users/Castl/OneDrive/Documents/GitHub/PythonFiles/Python Database PANDAS/FreqOfMass.xlsx', engine = 'openpyxl')
 
 dataset = {
     "cars":["Toyota", "Mitsubishi", "Ferrari"],
@@ -20,6 +20,8 @@ datasetforseries = {
     
 }
 
+datawithnonameindex = [1,2,3,4,5,6,7,8,9,10]
+
 #SERIES WITH INDEX
 indexedset = ["Mark", 23, "Male"]
 myanothersetofseries = pd.Series(indexedset, index=["Name", "Age", "Gender"])
@@ -34,7 +36,7 @@ print(divider)
 
 print(divider)
 #SERIES WITH NO NAMED INDEX
-mydataseries = pd.Series(datasetforseries)
+mydataseries = pd.Series(datawithnonameindex)
 print(mydataseries)
 
 print(divider)
@@ -59,6 +61,7 @@ dropnafunc = exelfile.dropna()
 print(dropnafunc.to_string())
 print(divider)
 
+
 #FILLNA
 """ exelfile.fillna("AKO AY MAY LAMAN NA", inplace=True)
 print(exelfile.to_string()) """
@@ -67,7 +70,7 @@ print(divider)
 
 #REPLACING USING MEAN, MEDIAN, MODE
 
-x = exelfile["MASS 5"].mean() #.median() .mode()
+x = exelfile["MASS 5"].mode() #.median() .mode()
 exelfile["MASS 5"] = exelfile["MASS 5"].fillna(x)
 print(exelfile)
 
