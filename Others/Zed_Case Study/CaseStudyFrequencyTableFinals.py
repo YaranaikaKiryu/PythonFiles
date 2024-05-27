@@ -140,8 +140,11 @@ while True:
                 "Relative Frequency": [round(x, 4) for x in Relative_Frequency],
                 "Cumulative Frequency": Cumulative_Frequency
             })
+
+            # Print the DataFrame
             print(df)
-   
+
+            # Print the sum of Frequency and Relative Frequency
             print("Sum of Frequency >> ", df['Frequency'].sum())
             print("Sum of Relative Frequency >> ", round(df['Relative Frequency'].sum(), 4))
             print("=====================================")
@@ -172,9 +175,11 @@ while True:
             for boundary in Class_Boundaries:
                 labels.append(f"{boundary[0]} - {boundary[1]}")
             plt.xticks(lower_boundaries, labels)
+            plt.legend(['Frequency'], loc='upper right')
             plt.title('Frequency Distribution Histogram')
             plt.xlabel('Class Boundaries')
             plt.ylabel('Frequency')
+            
 
           
             plt.show()
@@ -195,9 +200,9 @@ GITHUB REPOSITORIES USED FOR REFERENCE:
 
 1. https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
 2. https://github.com/Adr-hyng/Frequency-Distribution-Table-Generator/blob/main/main.py
-3. 
+3. https://github.com/Kakuteshome/Python-Frequency-distribution/blob/main/p144-p159.ipynb
 """
-""" 
+""" Q
 
 VISUALUZATION OF HOW TO GET THE CLASS LIMITS 
 

@@ -173,37 +173,66 @@ print("PRODUCT >> ", Product)
 print("QUOTIENT >> ", Quotient) """
 
 
-def Add(*values):
-    Sum = sum(values)
-    return Sum
+# def Add(*values):
+#     Sum = sum(values)
+#     return Sum
 
-def Subtract(*values):
-    Difference = values[0] - sum(values[1:])
-    return Difference
+# def Subtract(*values):
+#     Difference = values[0] - sum(values[1:])
+#     return Difference
 
-def Multiply(*values):
-    Product = 1
-    for value in values:
-        Product *= value
-    return Product
+# def Multiply(*values):
+#     Product = 1
+#     for value in values:
+#         Product *= value
+#     return Product
 
-def Divide(*values):
-        Quotient = values[0] / values[1]
-        return Quotient
+# def Divide(*values):
+#         Quotient = values[0] / values[1]
+#         return Quotient
 
-Number = int(input("Enter Number >> "))
-Values = []
-for x in range(Number):
-    value = int(input())
-    Values.append(value)
+# Number = int(input("Enter Number >> "))
+# Values = []
+# for x in range(Number):
+#     value = int(input())
+#     Values.append(value)
 
-print("==================")
-Sum = Add(*Values)
-Difference = Subtract(*Values)
-Product = Multiply(*Values)
-Quotient = Divide(*Values)
+# print("==================")
+# Sum = Add(*Values)
+# Difference = Subtract(*Values)
+# Product = Multiply(*Values)
+# Quotient = Divide(*Values)
 
-print("SUM >>", Sum)
-print("DIFFERENCE >> ", Difference)
-print("PRODUCT >> ", Product)
-print("QUOTIENT >> ", Quotient)
+# print("SUM >>", Sum)
+# print("DIFFERENCE >> ", Difference)
+# print("PRODUCT >> ", Product)
+# print("QUOTIENT >> ", Quotient)
+
+
+
+
+# Assuming 'Frequency' is your list
+Frequency = [3,7,7,7,8,8]
+
+# Calculate Mean
+mean = sum(Frequency) / len(Frequency)
+mean = round(mean, 2)  # rounding to 2 decimal places
+
+# Calculate Median
+Frequency.sort()
+if len(Frequency) % 2 == 0:  # if list length is even
+    median1 = Frequency[len(Frequency)//2]
+    median2 = Frequency[len(Frequency)//2 - 1]
+    median = (median1 + median2)/2
+else:
+    median = Frequency[len(Frequency)//2]
+
+# Calculate Mode
+mode_count = max([Frequency.count(val) for val in Frequency])
+mode_values = [val for val in Frequency if Frequency.count(val) == mode_count]
+mode = min(mode_values) if mode_values else None
+
+# Print Mean, Median, Mode
+print("Mean of Frequency: ", mean)
+print("Median of Frequency: ", median)
+print("Mode of Frequency: ", mode)
