@@ -5,7 +5,7 @@ try:
     import pandas as pd
     import matplotlib.pyplot as plt
 except ModuleNotFoundError as e:
-    print("pandas or matplotlib.pyplot Module is not yet Installed, please install it first by using the command 'pip install matplotlib.pyplot pandas' in the console/terminal")
+    print("pandas or matplotlib.pyplot Module is not yet Installed, please install it first by using the command 'pip install matplotlib pandas' in the console/terminal")
     print("Terminating Program....")
     exit()
 
@@ -158,26 +158,35 @@ while True:
             print("Median of Frequency: ", median)
             print("Mode of Frequency: ", mode)
                     
-           
-        
+            
             lower_boundaries = []
+            upper_boundaries = []
+            bins = []
             for boundary in Class_Boundaries:
                 lower_boundaries.append(boundary[0])
-
+                upper_boundaries.append(boundary[1])
+                bins.append(boundary[0])
+            bins.append(Class_Boundaries[-1][1])
 
             plt.figure(figsize=(10, 6))
-            plt.bar(lower_boundaries, Frequency, width=Class_Interval, edgecolor='black')
-            plt.plot(lower_boundaries, Frequency, color='red', marker='o')
-            labels = []
-            for boundary in Class_Boundaries:
-                labels.append(f"{boundary[0]} - {boundary[1]}")
-            plt.xticks(lower_boundaries, labels)
+            plt.hist(Raw_Data, bins=bins, edgecolor='black')
             plt.title('Frequency Distribution Histogram')
             plt.xlabel('Class Boundaries')
             plt.ylabel('Frequency')
 
-          
+
+            #Give this a detailed explanation. 
+            #MARKED AS DONE.
+            xticks = lower_boundaries + [upper_boundaries[-1]]
+            xticklabels = []
+            for i in range(len(lower_boundaries)):
+                xticklabels.append(f"{lower_boundaries[i]} - {upper_boundaries[i]}")
+            xticklabels.append(f"{lower_boundaries[-1]} - {upper_boundaries[-1]}")
+
+            plt.xticks(xticks, xticklabels)
             plt.show()
+            
+            
             RetryProgram = input("Do you want to try again? (Yes/No) >> ")
             if RetryProgram.lower() == "yes":
                 continue

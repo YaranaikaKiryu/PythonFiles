@@ -5,7 +5,7 @@ try:
     import pandas as pd
     import matplotlib.pyplot as plt
 except ModuleNotFoundError as e:
-    print("pandas or matplotlib.pyplot Module is not yet Installed, please install it first by using the command 'pip install matplotlib.pyplot pandas' in the console/terminal")
+    print("pandas or matplotlib.pyplot Module is not yet Installed, please install it first by using the command 'pip install matplotlib pandas' in the console/terminal")
     print("Terminating Program....")
     exit()
 
@@ -140,11 +140,8 @@ while True:
                 "Relative Frequency": [round(x, 4) for x in Relative_Frequency],
                 "Cumulative Frequency": Cumulative_Frequency
             })
-
-            # Print the DataFrame
             print(df)
-
-            # Print the sum of Frequency and Relative Frequency
+   
             print("Sum of Frequency >> ", df['Frequency'].sum())
             print("Sum of Relative Frequency >> ", round(df['Relative Frequency'].sum(), 4))
             print("=====================================")
@@ -161,28 +158,35 @@ while True:
             print("Median of Frequency: ", median)
             print("Mode of Frequency: ", mode)
                     
-           
-        
+            
             lower_boundaries = []
+            upper_boundaries = []
+            bins = []
             for boundary in Class_Boundaries:
                 lower_boundaries.append(boundary[0])
-
+                upper_boundaries.append(boundary[1])
+                bins.append(boundary[0])
+            bins.append(Class_Boundaries[-1][1])
 
             plt.figure(figsize=(10, 6))
-            plt.bar(lower_boundaries, Frequency, width=Class_Interval, edgecolor='black')
-            plt.plot(lower_boundaries, Frequency, color='red', marker='o')
-            labels = []
-            for boundary in Class_Boundaries:
-                labels.append(f"{boundary[0]} - {boundary[1]}")
-            plt.xticks(lower_boundaries, labels)
-            plt.legend(['Frequency'], loc='upper right')
+            plt.hist(Raw_Data, bins=bins, edgecolor='black')
             plt.title('Frequency Distribution Histogram')
             plt.xlabel('Class Boundaries')
             plt.ylabel('Frequency')
-            
 
-          
+
+            #Give this a detailed explanation. 
+            #MARKED AS DONE.
+            xticks = lower_boundaries + [upper_boundaries[-1]]
+            xticklabels = []
+            for i in range(len(lower_boundaries)):
+                xticklabels.append(f"{lower_boundaries[i]} - {upper_boundaries[i]}")
+            xticklabels.append(f"{lower_boundaries[-1]} - {upper_boundaries[-1]}")
+
+            plt.xticks(xticks, xticklabels)
             plt.show()
+            
+            
             RetryProgram = input("Do you want to try again? (Yes/No) >> ")
             if RetryProgram.lower() == "yes":
                 continue
@@ -200,9 +204,9 @@ GITHUB REPOSITORIES USED FOR REFERENCE:
 
 1. https://github.com/SrBlecaute01/FrequencyDistribution/blob/master/main.py
 2. https://github.com/Adr-hyng/Frequency-Distribution-Table-Generator/blob/main/main.py
-3. https://github.com/Kakuteshome/Python-Frequency-distribution/blob/main/p144-p159.ipynb
+3. 
 """
-""" Q
+""" 
 
 VISUALUZATION OF HOW TO GET THE CLASS LIMITS 
 
